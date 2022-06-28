@@ -29,7 +29,8 @@ arch-chroot /mnt
 
 ln -sf /usr/share/zoneinfo/Canada/Eastern /etc/localtime
 hwclock --systohc
-nano /etc/localgen                                        - - - - -- --- - -  en_US.UTF-8 UTF-8
+nano /etc/locale.gen          - - - - - - - - - en_US.UTF-8 UTF-8
+                                       
 echo LANG=en_US.UTF-8 > /etc/locale.conf
 echo KEYMAP=la-latin1 > /etc/vconsole.conf
 echo NatyZaty > /etc/hostname
@@ -50,6 +51,7 @@ passwd
 pacman -S grub efibootmgr
 grub--install --target=x86_64-efi --efi-directory=boot/efi
 grub-mkconfig -o /boot/grub/grub.cfg
-unmount -R /mnt                                        y
+unmount -R /mnt                                        
+exit
 reboot
 
